@@ -156,3 +156,6 @@ Android.bp
 
 # Python cache
 __pycache__/
+
+# Out
+out/
