@@ -2,7 +2,14 @@
 config ZRAM
 	tristate "Compressed RAM block device support"
 	depends on BLOCK && SYSFS && ZSMALLOC && CRYPTO
-	select CRYPTO_LZO
+	select CRYPTO_LZO   if ZRAM_DEFAULT_COMP_ALGORITHM = "lzo"
+	select CRYPTO_LZO   if ZRAM_DEFAULT_COMP_ALGORITHM = "lzo-rle"
+	select CRYPTO_LZ4   if ZRAM_DEFAULT_COMP_ALGORITHM = "lz4"
+	select CRYPTO_LZ4HC if ZRAM_DEFAULT_COMP_ALGORITHM = "lz4hc"
+	select CRYPTO_LZ4K  if ZRAM_DEFAULT_COMP_ALGORITHM = "lz4k"
+	select CRYPTO_LZ4KD if ZRAM_DEFAULT_COMP_ALGORITHM = "lz4kd"
+	select CRYPTO_842   if ZRAM_DEFAULT_COMP_ALGORITHM = "842"
+	select CRYPTO_ZSTD  if ZRAM_DEFAULT_COMP_ALGORITHM = "zstd"
 	default n
 	help
 	  Creates virtual block devices called /dev/zramX (X = 0, 1, ...).
