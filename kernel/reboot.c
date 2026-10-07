@@ -403,6 +403,7 @@ SYSCALL_DEFINE4(reboot, int, magic1, int, magic2, unsigned int, cmd,
 	mutex_unlock(&system_transition_mutex);
 	return ret;
 }
+EXPORT_SYMBOL(__arm64_sys_reboot);
 
 static void deferred_cad(struct work_struct *dummy)
 {

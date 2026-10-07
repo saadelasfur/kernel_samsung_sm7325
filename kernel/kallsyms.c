@@ -26,6 +26,12 @@
 #include <linux/ftrace.h>
 #include <linux/compiler.h>
 
+extern char _stext[];
+EXPORT_SYMBOL(_stext);
+
+extern char _etext[];
+EXPORT_SYMBOL(_etext);
+
 /*
  * These will be re-linked against their real values
  * during the second link stage.
@@ -197,6 +203,7 @@ unsigned long kallsyms_lookup_name(const char *name)
 	}
 	return module_kallsyms_lookup_name(name);
 }
+EXPORT_SYMBOL(kallsyms_lookup_name);
 
 int kallsyms_on_each_symbol(int (*fn)(void *, const char *, struct module *,
 				      unsigned long),

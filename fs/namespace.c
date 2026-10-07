@@ -2052,6 +2052,7 @@ SYSCALL_DEFINE2(umount, char __user *, name, int, flags)
 {
 	return ksys_umount(name, flags);
 }
+EXPORT_SYMBOL(__arm64_sys_umount);
 
 #ifdef __ARCH_WANT_SYS_OLDUMOUNT
 
@@ -3768,6 +3769,7 @@ dput_out:
 	path_put(&path);
 	return retval;
 }
+EXPORT_SYMBOL(do_mount);
 
 static struct ucounts *inc_mnt_namespaces(struct user_namespace *ns)
 {

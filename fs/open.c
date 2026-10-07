@@ -448,6 +448,7 @@ SYSCALL_DEFINE3(faccessat, int, dfd, const char __user *, filename, int, mode)
 {
 	return do_faccessat(dfd, filename, mode);
 }
+EXPORT_SYMBOL(__arm64_sys_faccessat);
 
 SYSCALL_DEFINE2(access, const char __user *, filename, int, mode)
 {
@@ -1221,6 +1222,7 @@ SYSCALL_DEFINE1(close, unsigned int, fd)
 
 	return retval;
 }
+EXPORT_SYMBOL(__arm64_sys_close);
 
 /**
  * close_range() - Close all file descriptors in a given range.

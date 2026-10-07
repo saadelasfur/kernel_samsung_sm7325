@@ -1212,6 +1212,7 @@ SYSCALL_DEFINE0(setsid)
 }
 
 DECLARE_RWSEM(uts_sem);
+EXPORT_SYMBOL(uts_sem);
 
 #ifdef COMPAT_UTS_MACHINE
 #define override_architecture(name) \

@@ -177,6 +177,7 @@ avtab_insert_nonunique(struct avtab *h, struct avtab_key *key, struct avtab_datu
 	}
 	return avtab_insert_node(h, hvalue, prev, cur, key, datum);
 }
+EXPORT_SYMBOL(avtab_insert_nonunique);
 
 struct avtab_datum *avtab_search(struct avtab *h, struct avtab_key *key)
 {
@@ -244,6 +245,7 @@ avtab_search_node(struct avtab *h, struct avtab_key *key)
 	}
 	return NULL;
 }
+EXPORT_SYMBOL(avtab_search_node);
 
 struct avtab_node*
 avtab_search_node_next(struct avtab_node *node, int specified)
@@ -273,6 +275,7 @@ avtab_search_node_next(struct avtab_node *node, int specified)
 	}
 	return NULL;
 }
+EXPORT_SYMBOL(avtab_search_node_next);
 
 void avtab_destroy(struct avtab *h)
 {
@@ -298,6 +301,7 @@ void avtab_destroy(struct avtab *h)
 	h->nslot = 0;
 	h->mask = 0;
 }
+EXPORT_SYMBOL(avtab_destroy);
 
 int avtab_init(struct avtab *h)
 {
@@ -340,6 +344,7 @@ int avtab_alloc(struct avtab *h, u32 nrules)
 	       h->nslot, nrules);
 	return 0;
 }
+EXPORT_SYMBOL(avtab_alloc);
 
 void avtab_hash_eval(struct avtab *h, char *tag)
 {

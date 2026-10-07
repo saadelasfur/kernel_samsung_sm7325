@@ -238,6 +238,7 @@ int __kprobes aarch64_insn_patch_text(void *addrs[], u32 insns[], int cnt)
 	return stop_machine_cpuslocked(aarch64_insn_patch_text_cb, &patch,
 				       cpu_online_mask);
 }
+EXPORT_SYMBOL(aarch64_insn_patch_text);
 
 static int __kprobes aarch64_get_imm_shift_mask(enum aarch64_insn_imm_type type,
 						u32 *maskp, int *shiftp)
@@ -512,6 +513,7 @@ u32 __kprobes aarch64_insn_gen_branch_imm(unsigned long pc, unsigned long addr,
 	return aarch64_insn_encode_immediate(AARCH64_INSN_IMM_26, insn,
 					     offset >> 2);
 }
+EXPORT_SYMBOL(aarch64_insn_gen_branch_imm);
 
 u32 aarch64_insn_gen_comp_branch_imm(unsigned long pc, unsigned long addr,
 				     enum aarch64_insn_register reg,
@@ -1339,6 +1341,7 @@ s32 aarch64_get_branch_offset(u32 insn)
 	/* Unhandled instruction */
 	BUG();
 }
+EXPORT_SYMBOL(aarch64_get_branch_offset);
 
 /*
  * Encode the displacement of a branch in the imm field and return the

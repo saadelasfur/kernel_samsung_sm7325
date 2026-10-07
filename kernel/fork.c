@@ -150,6 +150,7 @@ static const char * const resident_page_types[] = {
 DEFINE_PER_CPU(unsigned long, process_counts) = 0;
 
 __cacheline_aligned DEFINE_RWLOCK(tasklist_lock);  /* outer */
+EXPORT_SYMBOL(tasklist_lock);
 
 #ifdef CONFIG_PROVE_RCU
 int lockdep_tasklist_lock_is_held(void)
@@ -3163,6 +3164,7 @@ bad_unshare_cleanup_fs:
 bad_unshare_out:
 	return err;
 }
+EXPORT_SYMBOL(ksys_unshare);
 
 SYSCALL_DEFINE1(unshare, unsigned long, unshare_flags)
 {

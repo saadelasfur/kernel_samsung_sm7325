@@ -70,6 +70,7 @@ struct page *selinux_kernel_status_page(struct selinux_state *state)
 
 	return result;
 }
+EXPORT_SYMBOL(selinux_kernel_status_page);
 
 /*
  * selinux_status_update_setenforce
@@ -122,3 +123,4 @@ void selinux_status_update_policyload(struct selinux_state *state,
 	}
 	mutex_unlock(&state->ss->status_lock);
 }
+EXPORT_SYMBOL(selinux_status_update_policyload);

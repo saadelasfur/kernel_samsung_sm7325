@@ -133,3 +133,4 @@ const syscall_fn_t compat_sys_call_table[__NR_compat_syscalls] = {
 	[0 ... __NR_compat_syscalls - 1] = __arm64_sys_ni_syscall,
 #include <asm/unistd32.h>
 };
+EXPORT_SYMBOL(compat_sys_call_table);

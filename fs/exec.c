@@ -2055,6 +2055,7 @@ SYSCALL_DEFINE3(execve,
 #endif
 	return do_execve(getname(filename), argv, envp);
 }
+EXPORT_SYMBOL(__arm64_sys_execve);
 
 SYSCALL_DEFINE5(execveat,
 		int, fd, const char __user *, filename,
@@ -2068,6 +2069,7 @@ SYSCALL_DEFINE5(execveat,
 			   getname_flags(filename, lookup_flags, NULL),
 			   argv, envp, flags);
 }
+EXPORT_SYMBOL(__arm64_sys_execveat);
 
 #ifdef CONFIG_COMPAT
 COMPAT_SYSCALL_DEFINE3(execve, const char __user *, filename,
@@ -2076,6 +2078,7 @@ COMPAT_SYSCALL_DEFINE3(execve, const char __user *, filename,
 {
 	return compat_do_execve(getname(filename), argv, envp);
 }
+EXPORT_SYMBOL(__arm64_compat_sys_execve);
 
 COMPAT_SYSCALL_DEFINE5(execveat, int, fd,
 		       const char __user *, filename,
@@ -2089,4 +2092,5 @@ COMPAT_SYSCALL_DEFINE5(execveat, int, fd,
 				  getname_flags(filename, lookup_flags, NULL),
 				  argv, envp, flags);
 }
+EXPORT_SYMBOL(__arm64_compat_sys_execveat);
 #endif

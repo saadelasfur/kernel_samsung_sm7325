@@ -4258,6 +4258,7 @@ SYSCALL_DEFINE3(init_module, void __user *, umod,
 
 	return load_module(&info, uargs, 0);
 }
+EXPORT_SYMBOL(__arm64_sys_init_module);
 
 SYSCALL_DEFINE3(finit_module, int, fd, const char __user *, uargs, int, flags)
 {
@@ -4285,6 +4286,7 @@ SYSCALL_DEFINE3(finit_module, int, fd, const char __user *, uargs, int, flags)
 
 	return load_module(&info, uargs, flags);
 }
+EXPORT_SYMBOL(__arm64_sys_finit_module);
 
 static inline int within(unsigned long addr, void *start, unsigned long size)
 {

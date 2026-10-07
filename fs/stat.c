@@ -369,6 +369,7 @@ SYSCALL_DEFINE4(newfstatat, int, dfd, const char __user *, filename,
 		return error;
 	return cp_new_stat(&stat, statbuf);
 }
+EXPORT_SYMBOL(__arm64_sys_newfstatat);
 #endif
 
 SYSCALL_DEFINE2(newfstat, unsigned int, fd, struct stat __user *, statbuf)
@@ -381,6 +382,7 @@ SYSCALL_DEFINE2(newfstat, unsigned int, fd, struct stat __user *, statbuf)
 
 	return error;
 }
+EXPORT_SYMBOL(__arm64_sys_newfstat);
 #endif
 
 static int do_readlinkat(int dfd, const char __user *pathname,
@@ -508,6 +510,7 @@ SYSCALL_DEFINE2(fstat64, unsigned long, fd, struct stat64 __user *, statbuf)
 
 	return error;
 }
+EXPORT_SYMBOL(__arm64_sys_fstat64);
 
 SYSCALL_DEFINE4(fstatat64, int, dfd, const char __user *, filename,
 		struct stat64 __user *, statbuf, int, flag)
@@ -520,6 +523,7 @@ SYSCALL_DEFINE4(fstatat64, int, dfd, const char __user *, filename,
 		return error;
 	return cp_new_stat64(&stat, statbuf);
 }
+EXPORT_SYMBOL(__arm64_sys_fstatat64);
 #endif /* __ARCH_WANT_STAT64 || __ARCH_WANT_COMPAT_STAT64 */
 
 static noinline_for_stack int

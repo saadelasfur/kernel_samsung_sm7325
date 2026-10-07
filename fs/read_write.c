@@ -624,6 +624,7 @@ SYSCALL_DEFINE3(read, unsigned int, fd, char __user *, buf, size_t, count)
 {
 	return ksys_read(fd, buf, count);
 }
+EXPORT_SYMBOL(__arm64_sys_read);
 
 ssize_t ksys_write(unsigned int fd, const char __user *buf, size_t count)
 {

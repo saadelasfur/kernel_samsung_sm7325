@@ -358,6 +358,7 @@ void change_pid(struct task_struct *task, enum pid_type type,
 	__change_pid(task, type, pid);
 	attach_pid(task, type);
 }
+EXPORT_SYMBOL(change_pid);
 
 /* transfer_pid is an optimization of attach_pid(new), detach_pid(old) */
 void transfer_pid(struct task_struct *old, struct task_struct *new,
